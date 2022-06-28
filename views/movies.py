@@ -24,6 +24,7 @@ class MoviesView(Resource):
 
 @movie_ns.route("/<int:movie_id>")
 class MovieView(Resource):
+    schema = MovieSchema()
 
     def get(self, movie_id: int):
         return self.schema.dump(movie_service.get_movies(movie_id)), 200
