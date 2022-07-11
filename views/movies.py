@@ -18,7 +18,7 @@ class MoviesView(Resource):
     def post(self):
         new_movie = movie_service.create_movie(request.json)
         resp = make_response("", 201)
-        resp.headers['location'] = f"{movie_ns.path}/{new_movie/id}"
+        resp.headers['location'] = f"{movie_ns.path}/{new_movie.id}"
         return resp
 
 
